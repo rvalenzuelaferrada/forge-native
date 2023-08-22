@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Native\Laravel\Facades\Window;
 use Native\Laravel\Contracts\ProvidesPhpIni;
+use Native\Laravel\Facades\MenuBar;
+use Native\Laravel\Menu\Menu;
 
 class NativeAppServiceProvider implements ProvidesPhpIni
 {
@@ -13,7 +15,15 @@ class NativeAppServiceProvider implements ProvidesPhpIni
      */
     public function boot(): void
     {
-        Window::open();
+        MenuBar::create()
+        ->withContextMenu(
+            Menu::new()
+                ->label('My Application')
+                ->separator()
+                ->link('https://nativephp.com', 'Learn more…')
+                ->separator()
+                ->quit()
+        );
     }
 
     /**
