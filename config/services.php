@@ -31,4 +31,8 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'forge' => [
+        'api_token' => env('FORGE_API_TOKEN'),
+    ],
+
 ];
